@@ -3,7 +3,7 @@ import json
 import urllib.request
 
 WAREHOUSE_URL = "https://warehouse.example.test/orders"
-TIMEOUT_SECONDS = 10
+TIMEOUT_SECONDS = 1
 
 def push(order):
     body = json.dumps({"id": order["id"], "sku": order["sku"], "qty": order["qty"]}).encode()
