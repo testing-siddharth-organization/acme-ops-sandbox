@@ -1,7 +1,9 @@
 """Acme sync worker: pulls orders from the shop API and pushes them to the warehouse."""
 import time
 
-RETRY_LIMIT = 3
+import os
+
+RETRY_LIMIT = int(os.environ.get("SYNC_RETRIES", "0"))
 
 def sync_orders(client, warehouse):
     for order in client.fetch_orders():
